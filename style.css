@@ -1,0 +1,15 @@
+form {
+    font-size: 18px;
+    max-width: 600px;
+  }
+  label {
+    display: block;
+    line-height: 1.5;
+  }
+  *:not(legend) + label, fieldset + * {
+    margin-top: 1em;
+  }
+  input, textarea, select, button {
+    font-size: 1em;
+  }
+  
