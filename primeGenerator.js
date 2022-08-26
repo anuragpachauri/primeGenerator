@@ -1,26 +1,23 @@
 
-
-function primeGenerator(lowerNumber,higherNumber) {
-// looping from lowerNumber to higherNumber
-for (let i = lowerNumber; i <= higherNumber; i++) {
-    let flag = 0;
-    var myArray = Array();
-
-    // looping through 2 to user input number
-    for (let j = 2; j < i; j++) {
-        if (i % j == 0) {
-            flag = 1;
-            break;
-        }
+var stringify = require('json-stringify');
+function isPrime(number) {
+    var start = 2;
+    while (start <= Math.sqrt(number)) {
+        if (number % start++ < 1) return false;
     }
-
-    // if number greater than 1 and not divisible by other numbers
-    if (i > 1 && flag == 0) {
-        myArray.push(i);
-        // console.log(i);
-    }
+    return number > 1;
 }
-console.info(myArray);
-return myArray;
-};
+
+function primeGenerator(start, finish) {
+  var realStart = (start <= finish) ? start : finish;
+  var realEnd = (start > finish) ? start : finish;
+  var numbers = [];
+  
+  for(var current = realStart; current <= realEnd; current++) {
+    if(isPrime(current)) {
+      numbers.push(current);
+    }
+  }
+  return numbers;
+}
 module.exports.primeGenerator=primeGenerator;
